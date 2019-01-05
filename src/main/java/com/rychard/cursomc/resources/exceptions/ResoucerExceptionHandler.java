@@ -17,6 +17,6 @@ public class ResoucerExceptionHandler {
 	@ExceptionHandler(ObjectNotFoundException.class)
 	public ResponseEntity<StandardError> objectNotFound(ObjectNotFoundException e, HttpServletRequest request){
 		StandardError err = new StandardError(HttpStatus.NOT_FOUND.value(), e.getMessage(),System.currentTimeMillis());
-		return new ResponseEntity<>(err,HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<>(err,HttpStatus.NOT_FOUND);
 	}
 }
